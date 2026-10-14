@@ -30,3 +30,13 @@ Resource: NIST - Computer Security Incidental Handling Guide - https://nvlpubs.n
 A star schema places usage measurements in a central fact table linked directly to dimensions such as date and region. A snowflake schema separates some dimension details into additional related tables. For this project, a star schema is a practical choice because managers need clear daily reports for each region. It makes the data structure easier to understand and helps simplify queries about user numbers and data consumption.
 
 Resource: Microsoft Learn - Understand star schema and its importance for Power BI - https://learn.microsoft.com/en-us/power-bi/guidance/star-schema
+
+## Misconception
+Some developers mistakenly believe that repeating any HTTP request after a network failure is harmless. In reality, sending the same request more than once can lead to unexpected outcomes. For instance, repeating a POST request could result in duplicate orders or multiple payment attempts. This may occur when the server successfully handles the initial request, but the client fails to receive its response and incorrectly assumes that the operation was unsuccessful.
+
+Correct Version: HTTP methods differ in terms of safety and idempotency. A safe method is designed to retrieve information without intentionally modifying the server’s state. An idempotent method, on the other hand, has the same intended effect whether it is executed once or several times. GET is both safe and idempotent, while PUT and DELETE are idempotent but not safe. POST is generally neither safe nor idempotent. Recognizing these distinctions allows developers to design appropriate retry mechanisms and reduce the risk of unintended operations.
+
+Resource: RFC 9110 - HTTP Semantics - https://www.rfc-editor.org/rfc/r9110.html
+
+## Open Question
+How can software engineers design and test an emergency-response application so that responders can access critical incident details, receive clear failure alerts, and switch safely to an offline or backup workflow when the 5G connection is disrupted by an outage or cyberattack?
